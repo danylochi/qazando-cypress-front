@@ -4,20 +4,21 @@
     "description": "**[PT/BR] Projeto Cypress**\r * *Criado por:* @danylochii",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/danylochii/cypress-frontend-automation-qazando.git"
+        "type": "git",
+        "url": "git+https://github.com/danylochii/cypress-frontend-automation-qazando.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/danylochii/cypress-frontend-automation-qazando/issues"
+        "url": "https://github.com/danylochii/cypress-frontend-automation-qazando/issues"
     },
     "homepage": "https://github.com/danylochii/cypress-frontend-automation-qazando#readme",
     "dependencies": {
-      "cypress": "^13.3.2"
+        "cypress": "^13.13.3",
+        "lodash": "^4.17.21"
     }
-  }
+}
