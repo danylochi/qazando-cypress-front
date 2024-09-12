@@ -1,3 +1,7 @@
+/// <reference types="cypress"/>
+const user_data = require('../fixtures/user_create.json')
+
+
 describe('Cadastro de usuário', () => {
    
     it('Validar campo span de email vazio', () => {
@@ -21,7 +25,8 @@ describe('Cadastro de usuário', () => {
         cy.visit('/'+'login')
         
         // Digita um e-mail válido no campo de usuário
-        cy.get('#user').type('12345@gmail.com')
+        cy.get('#user')
+        .type(user_data.email)
 
         
         // Clica no botão de login
@@ -39,7 +44,7 @@ describe('Cadastro de usuário', () => {
         
         cy.get('#user')
             .should('be.visible')
-            .type('12345@gmail.com')
+            .type(user_data.email)
 
         cy.get('#password')
             .should('be.visible')
@@ -60,11 +65,11 @@ describe('Cadastro de usuário', () => {
 
         cy.get('#user')
             .should('be.visible')
-            .type('12345@gmail.com')
+            .type(user_data.email)
 
         cy.get('#password')
             .should('be.visible')
-            .type('123456@A')
+            .type(user_data.password)
 
         cy.get('#btnLogin')
             .should('be.visible')
@@ -74,7 +79,7 @@ describe('Cadastro de usuário', () => {
         
         cy.get('#swal2-html-container')
             .should('be.visible')
-            .should('contain.text','Olá, 12345@gmail.com')
+            .should('contain.text','Olá', user_data.email)
 
         
         cy.get('.swal2-confirm')
