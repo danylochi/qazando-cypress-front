@@ -3,9 +3,18 @@ const user_data = require('../fixtures/user_create.json')
 
 
 describe('Cadastro de usuário', () => {
+    beforeEach('Acessandopagina de cadastro', ()=>{
+        cy.visit('/'+'login')
+    
+    cy.get('.account_form > h3')
+        .should('be.visible')
+    
+    cy.get('#btnLogin')
+        .click()
+    })
    
     it('Validar campo span de email vazio', () => {
-    cy.visit('/'+'login')
+    
     
     cy.get('.account_form > h3')
         .should('be.visible')
@@ -16,13 +25,15 @@ describe('Cadastro de usuário', () => {
     cy.get('.invalid_input')
         .should('contain.text', 'E-mail inválido')
         .and('be.visible');
-      
+
+    cy.get('#user')
+    .should('be.visible')
 
     })
 
     it('Validar o campo senha invalida vazio', () => {
         // Visita a página de login
-        cy.visit('/'+'login')
+        
         
         // Digita um e-mail válido no campo de usuário
         cy.get('#user')
@@ -40,10 +51,9 @@ describe('Cadastro de usuário', () => {
     })
 
     it ('Validar span campo senha tipo inválido', () => {
-        cy.visit('/'+'login')
+        
         
         cy.get('#user')
-            .should('be.visible')
             .type(user_data.email)
 
         cy.get('#password')
@@ -61,10 +71,9 @@ describe('Cadastro de usuário', () => {
     
 
     it ('Login realizado com sucesso', () => {
-        cy.visit('/'+'login')   
+       
 
         cy.get('#user')
-            .should('be.visible')
             .type(user_data.email)
 
         cy.get('#password')
