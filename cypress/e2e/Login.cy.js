@@ -4,7 +4,7 @@ const user_data = require('../fixtures/user_create.json')
 
 describe('Login de usuário', () => {
     beforeEach('Acessandopagina de cadastro', () => {
-        cy.accessRegistrerPage()
+        cy.loginPage()
     })    
 
     it('Validar campo span de email vazio', () => {

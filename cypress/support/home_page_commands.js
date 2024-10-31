@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-Cypress.Commands.add('accessRegistrerPage',()=>{
+Cypress.Commands.add('loginPage',()=>{
     
     cy.visit('/' + 'login')
 
@@ -10,8 +10,16 @@ Cypress.Commands.add('accessRegistrerPage',()=>{
     cy.get('#btnLogin')
         .should('be.visible')
 
+})
+
+Cypress.Commands.add('accessRegistrerPage',()=>{
+    
+    cy.visit('/' + 'register')
 
 
+    cy.get('.account_form')
+        .should('be.visible')
+        
 
 
 })
